@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import PotholeContainer from './'
 
 class App extends React.Component {
   constructor () {
     super();
     this.state = { potholes: [ 
         {
+        id: 1,
         latitude: '39.74379494415912',
         longitude: '-104.95005172109876',
         description: 'Decent size',
@@ -15,6 +17,7 @@ class App extends React.Component {
         ]
         }, 
         {
+          id: 2,
           latitude: '39.74018534594094',
           longitude: '-104.95724927698312',
           description: `its a pothole`,
@@ -23,14 +26,15 @@ class App extends React.Component {
           ]
         }, 
         {
-        latitude: '39.77998918688553',
-        longitude: '-104.97897473238706',
-        description: 'Extra Smelly',
-        pictures: [
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Newport_Whitepit_Lane_pot_hole.JPG/1920px-Newport_Whitepit_Lane_pot_hole.JPG',
-          'https://www.thebalance.com/thmb/VlnrT3pRKvtegoumE0fXWmA4pWI=/2121x1193/smart/filters:no_upscale()/pothole-174662203-5a7dc84aae9ab80036c6ad36.jpg'
-        ]
-      }] 
+          id: 3,
+          latitude: '39.77998918688553',
+          longitude: '-104.97897473238706',
+          description: 'Extra Smelly',
+          pictures: [
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Newport_Whitepit_Lane_pot_hole.JPG/1920px-Newport_Whitepit_Lane_pot_hole.JPG',
+            'https://www.thebalance.com/thmb/VlnrT3pRKvtegoumE0fXWmA4pWI=/2121x1193/smart/filters:no_upscale()/pothole-174662203-5a7dc84aae9ab80036c6ad36.jpg'
+          ]
+        }] 
     }
   }
   
@@ -38,7 +42,7 @@ class App extends React.Component {
     return (
       <main className='App'>
         <h1 className='title'>Pot Spot</h1>
-        <Form />
+        <PotholeContainer potholes={this.state.potholes}/>
    
       </main>
      )
