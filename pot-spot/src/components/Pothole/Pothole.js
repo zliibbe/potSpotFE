@@ -2,12 +2,10 @@ import React from "react"
 import './Pothole.css'
 
 const Pothole = ({latitude, longitude, description, pictures, id}) => {
-    const photoElements = pictures.map(picture => {
-        return <a href={ picture }> Picture of pothole #{id} </a>
-        
-
-        
-    })
+    // const photoElements = pictures.map(picture => {
+    //     return <a href={ picture }><img alt={picture} src={picture}/> </a>
+    // })
+    const potholePreviewPhoto = <img src={pictures[0]}/>
     
     return (
         <section className='pothole'>
@@ -17,7 +15,7 @@ const Pothole = ({latitude, longitude, description, pictures, id}) => {
                 <p className="longitude">{longitude}</p>
             </div>
             <div className="description">{description}</div>
-            <div className="pictures">{photoElements}</div>
+            <div className="pictures">{potholePreviewPhoto}</div>
         </section>
     )
 }
