@@ -2,7 +2,7 @@ import React from "react"
 import './Form.css'
 
 class Form extends React.Component {
-    constructor() {
+    constructor(props) {
         super()
         this.state = {
             latitude: '',
@@ -10,6 +10,25 @@ class Form extends React.Component {
             description: '',
             pictures: []
         }
+    }
+    
+    submitPothole = (event) => {
+        event.preventDefault();
+        const newPothole = {
+            id: Date.now(),
+            ...this.state
+        }
+        this.props.addPothole(newPothole);
+        this.clearInputs();
+    }
+
+    clearInputs = () => {
+        this.setState({
+            latitude: '',
+            longitude: '',
+            description: '',
+            pictures: []
+        })
     }
 
     handleChange = event => {
@@ -24,7 +43,7 @@ class Form extends React.Component {
                     name="latitude"
                     placeholder="Enter Latitude"
                     value={this.state.latitude}
-                    onChange={event => handleChange(event)}    
+                    onChange={event => this.handleChange(event)}    
                 ></input>
 
                 <input 
@@ -32,7 +51,7 @@ class Form extends React.Component {
                     name="longitude"
                     placeholder="Enter Longitude"
                     value={this.state.longitude}
-                    onChange={event => handleChange(event)}    
+                    onChange={event => this.handleChange(event)}    
                 ></input>
 
                 <input 
@@ -40,7 +59,7 @@ class Form extends React.Component {
                     name="description"
                     placeholder="Describe pothole"
                     value={this.state.description}
-                    onChange={event => handleChange(event)}    
+                    onChange={event => this.handleChange(event)}    
                 ></input>
 
                 <input 
@@ -48,8 +67,10 @@ class Form extends React.Component {
                     name="pictures"
                     placeholder="Paste URL of pothole photo"
                     value={this.state.pictures}
-                    onChange={event => handleChange(event)}    
+                    onChange={event => this.handleChange(event)}    
                 ></input>
+
+                <button onClick={event => this.submitPothole(event)}>Submit</button>
             </form>
         )
     }
