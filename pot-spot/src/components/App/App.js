@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import PotholeContainer from './'
+import PotholeContainer from '../PotholeContainer/PotholeContainer'
 
 class App extends React.Component {
   constructor () {
