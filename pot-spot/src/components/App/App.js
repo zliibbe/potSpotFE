@@ -47,6 +47,7 @@ class App extends React.Component {
     return (
       <main className='App'>
         <h1 className='title'>Pot Spot</h1>
+        <h2>Denver, CO</h2>
         <Form addPothole={this.addPothole}/>
         <PotholeContainer potholes={this.state.potholes}/>
       </main>
