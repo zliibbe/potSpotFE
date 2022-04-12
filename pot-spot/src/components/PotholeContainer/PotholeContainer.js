@@ -4,11 +4,7 @@ import './PotholeContainer.css'
 
 
 const PotholeContainer = ({potholes}) => {
-//     const allPotholes = potholes.map(pothole => {
-//         const potholePics = pothole.pictures.reduce((acc, photo) => {
-
-//         })
-        
+    const allPotholes = potholes.map(pothole => {        
         return(
             <Pothole 
                 latitude={pothole.latitude}
@@ -19,7 +15,7 @@ const PotholeContainer = ({potholes}) => {
                 key={pothole.id}
             />
         )
-    // })
+    })
     
     
     return (
