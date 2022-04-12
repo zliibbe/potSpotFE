@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import PotholeContainer from '../PotholeContainer/PotholeContainer'
+import PotholeContainer from '../PotholeContainer/PotholeContainer';
+import Form from '../Form/Form'
 
 class App extends React.Component {
   constructor () {
@@ -37,13 +38,17 @@ class App extends React.Component {
         }] 
     }
   }
+
+  addPothole = (newPothole) => {
+    this.setState({potholes: [...this.state.potholes, newPothole]})
+  }
   
   render() {
     return (
       <main className='App'>
         <h1 className='title'>Pot Spot</h1>
+        <Form addPothole={this.addPothole}/>
         <PotholeContainer potholes={this.state.potholes}/>
-   
       </main>
      )
   } ;
