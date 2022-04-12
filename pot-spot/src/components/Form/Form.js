@@ -44,7 +44,7 @@ class Form extends React.Component {
                     placeholder="Enter Latitude"
                     value={this.state.latitude}
                     onChange={event => this.handleChange(event)}    
-                ></input>
+                />
 
                 <input 
                     type="text"
@@ -52,7 +52,7 @@ class Form extends React.Component {
                     placeholder="Enter Longitude"
                     value={this.state.longitude}
                     onChange={event => this.handleChange(event)}    
-                ></input>
+                />
 
                 <input 
                     type="text"
@@ -60,7 +60,7 @@ class Form extends React.Component {
                     placeholder="Describe pothole"
                     value={this.state.description}
                     onChange={event => this.handleChange(event)}    
-                ></input>
+                />
 
                 <input 
                     type="text"
@@ -68,7 +68,7 @@ class Form extends React.Component {
                     placeholder="Paste URL of pothole photo"
                     value={this.state.pictures}
                     onChange={event => this.handleChange(event)}    
-                ></input>
+                />
 
                 <button onClick={event => this.submitPothole(event)}>Submit</button>
             </form>
