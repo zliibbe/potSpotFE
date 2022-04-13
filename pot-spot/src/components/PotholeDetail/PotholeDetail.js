@@ -8,10 +8,10 @@ const PotholeDetail = ({currentPothole, collectPotholePhotos}) => {
         <section className='pothole-detail'>
         <div className="location-detail">
             <h3>Location</h3>
-            <p className="latitude-detail">{currentPothole.latitude}</p>
-            <p className="longitude-detail">{currentPothole.longitude}</p>
+            <p className="latitude-detail">Latitude: {currentPothole.latitude}</p>
+            <p className="longitude-detail">Longitude: {currentPothole.longitude}</p>
+            <div className="description-detail">Description: {currentPothole.description}</div>
         </div>
-        <div className="description-detail">{currentPothole.description}</div>
         <div className="pictures-detail" >{collectPotholePhotos()}</div>
     </section>
     )
