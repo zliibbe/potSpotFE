@@ -53,7 +53,7 @@ class App extends React.Component {
 
   collectPotholePhotos = () => {
     return this.state.currentPothole.pictures.map(pic => {
-        return <a href={ pic }><img alt={pic} src={pic}/> </a> 
+        return <a href={ pic }><img alt={pic} src={pic} className='pothole-picture'/> </a> 
     })
 }
   
