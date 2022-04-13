@@ -1,3 +1,7 @@
+h1, h2 {
+  color: white;
+}
+
 .App {
   text-align: center;
   display: flex;
