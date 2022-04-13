@@ -5,6 +5,17 @@
   align-items: center;
 }
 
+.form-map-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.map-placeholder {
+  height: 150px;
+  width: 400px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
