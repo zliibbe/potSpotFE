@@ -50,11 +50,17 @@ class App extends React.Component {
     const singlePothole = this.state.potholes.find(ph => ph.id === id)
     this.setState({currentPothole: singlePothole})
   }
+
+  collectPotholePhotos = () => {
+    return this.state.currentPothole.pictures.map(pic => {
+        return <a href={ pic }><img alt={pic} src={pic}/> </a> 
+    })
+}
   
   render() {
     let display
     if(this.state.currentPothole) {
-      display=<PotholeDetail currentPothole={this.state.currentPothole}/>
+      display=<PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos}/>
     } else {
       display=
       <main className='App'>
