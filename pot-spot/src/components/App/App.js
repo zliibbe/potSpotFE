@@ -48,7 +48,10 @@ class App extends React.Component {
       <main className='App'>
         <h1 className='title'>Pot Spot</h1>
         <h2>Denver, CO</h2>
-        <Form addPothole={this.addPothole}/>
+        <div className='form-map-container'>
+          <Form addPothole={this.addPothole}/>
+          <div className='pothole-form map-placeholder'>Map will go here</div>
+        </div>
         <PotholeContainer potholes={this.state.potholes}/>
       </main>
      )
