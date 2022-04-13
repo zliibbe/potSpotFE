@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import PotholeContainer from '../PotholeContainer/PotholeContainer';
 import Form from '../Form/Form'
+import PotholeDetail from '../PotholeDetail/PotholeDetail';
 
 class App extends React.Component {
   constructor () {
@@ -42,6 +43,18 @@ class App extends React.Component {
   addPothole = (newPothole) => {
     this.setState({potholes: [...this.state.potholes, newPothole]})
   }
+
+  findPothole = (event) => {
+    console.log("findPothole event:", event)
+    this.state.potholes.find(pothole => {
+      if (pothole.id === event.target.id) {
+        console.log("Pothole: ", pothole)
+        return pothole
+      }
+    })
+    // search array of this.state.potholes using .find
+    // .find() e.target.id in this.state.potholes
+  }
   
   render() {
     return (
@@ -52,7 +65,9 @@ class App extends React.Component {
           <Form addPothole={this.addPothole}/>
           <div className='pothole-form map-placeholder'>Map will go here</div>
         </div>
-        <PotholeContainer potholes={this.state.potholes}/>
+        <PotholeContainer potholes={this.state.potholes} onClick={event => this.findPothole(event)}/>
+        
+        <PotholeDetail />
       </main>
      )
   } ;
