@@ -3,7 +3,7 @@ import Pothole from '../Pothole/Pothole'
 import './PotholeContainer.css'
 
 
-const PotholeContainer = ({potholes}) => {
+const PotholeContainer = ({potholes, findPothole}) => {
     const allPotholes = potholes.map(pothole => {        
         return(
             <Pothole 
@@ -13,6 +13,7 @@ const PotholeContainer = ({potholes}) => {
                 pictures={pothole.pictures} 
                 id={pothole.id}
                 key={pothole.id}
+                findPothole={findPothole}
             />
         )
     })
