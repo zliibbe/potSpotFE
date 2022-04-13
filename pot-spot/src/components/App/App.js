@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import PotholeContainer from '../PotholeContainer/PotholeContainer';
 import Form from '../Form/Form'
+import PotholeDetail from '../PotholeDetail/PotholeDetail'
 
 class App extends React.Component {
   constructor () {
@@ -53,7 +54,7 @@ class App extends React.Component {
   render() {
     let display
     if(this.state.currentPothole) {
-      display=<p>Found pothole: {this.state.currentPothole.id}</p>
+      display=<PotholeDetail currentPothole={this.state.currentPothole}/>
     } else {
       display=
       <main className='App'>
