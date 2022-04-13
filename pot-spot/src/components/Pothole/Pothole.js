@@ -1,22 +1,21 @@
 import React from "react"
 import './Pothole.css'
 
-const Pothole = ({latitude, longitude, description, pictures, id}) => {
+const Pothole = ({latitude, longitude, description, pictures, id, findPothole}) => {
     // const photoElements = pictures.map(picture => {
     //     return <a href={ picture }><img alt={picture} src={picture}/> </a>
     // })
     const potholePreviewPhoto = <img src={pictures[0]}/>
-    
+
     return (
-        <section onClick={() => console.log(id)} className='pothole'>
-            <p className="id">{id}</p>
+        <section className='pothole' onClick={() => findPothole(id)}>
             <div className="location">
                 <h2>Location</h2>
                 <p className="latitude">{latitude}</p>
                 <p className="longitude">{longitude}</p>
             </div>
             <div className="description">{description}</div>
-            <div className="pictures">{potholePreviewPhoto}</div>
+            <div className="pictures" >{potholePreviewPhoto}</div>
         </section>
     )
 }
