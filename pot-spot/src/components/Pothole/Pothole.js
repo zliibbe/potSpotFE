@@ -8,7 +8,8 @@ const Pothole = ({latitude, longitude, description, pictures, id}) => {
     const potholePreviewPhoto = <img src={pictures[0]}/>
     
     return (
-        <section className='pothole'>
+        <section onClick={() => console.log(id)} className='pothole'>
+            <p className="id">{id}</p>
             <div className="location">
                 <h2>Location</h2>
                 <p className="latitude">{latitude}</p>
