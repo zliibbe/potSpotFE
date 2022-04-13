@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import PotholeContainer from '../PotholeContainer/PotholeContainer';
 import Form from '../Form/Form'
-import PotholeDetail from '../PotholeDetail/PotholeDetail';
 
 class App extends React.Component {
   constructor () {
@@ -36,7 +35,8 @@ class App extends React.Component {
             'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Newport_Whitepit_Lane_pot_hole.JPG/1920px-Newport_Whitepit_Lane_pot_hole.JPG',
             'https://www.thebalance.com/thmb/VlnrT3pRKvtegoumE0fXWmA4pWI=/2121x1193/smart/filters:no_upscale()/pothole-174662203-5a7dc84aae9ab80036c6ad36.jpg'
           ]
-        }] 
+        }],
+        currentPothole: ''
     }
   }
 
@@ -44,20 +44,18 @@ class App extends React.Component {
     this.setState({potholes: [...this.state.potholes, newPothole]})
   }
 
-  findPothole = (event) => {
-    console.log("findPothole event:", event)
-    this.state.potholes.find(pothole => {
-      if (pothole.id === event.target.id) {
-        console.log("Pothole: ", pothole)
-        return pothole
-      }
-    })
-    // search array of this.state.potholes using .find
-    // .find() e.target.id in this.state.potholes
+  findPothole = (id) => {
+
+    const singlePothole = this.state.potholes.find(ph => ph.id === id)
+    this.setState({currentPothole: singlePothole})
   }
   
   render() {
-    return (
+    let display
+    if(this.state.currentPothole) {
+      display=<p>Found pothole: {this.state.currentPothole.id}</p>
+    } else {
+      display=
       <main className='App'>
         <h1 className='title'>Pot Spot</h1>
         <h2>Denver, CO</h2>
@@ -65,9 +63,13 @@ class App extends React.Component {
           <Form addPothole={this.addPothole}/>
           <div className='pothole-form map-placeholder'>Map will go here</div>
         </div>
-        <PotholeContainer potholes={this.state.potholes} onClick={event => this.findPothole(event)}/>
-        
-        <PotholeDetail />
+        <PotholeContainer potholes={this.state.potholes} findPothole={this.findPothole}/>
+      </main>
+    }
+    return (
+      <main>
+        {display}
+
       </main>
      )
   } ;
