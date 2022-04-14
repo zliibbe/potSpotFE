@@ -1,5 +1,5 @@
-const fetchPotholes = () => {
-   const fetchCall = fetch('https://pot-spot.herokuapp.com/api/v1/potholes') 
+const fetchPotholes = (id) => {
+   let fetchCall = id ? fetch(`https://pot-spot.herokuapp.com/api/v1/potholes/${id}`) : fetch('https://pot-spot.herokuapp.com/api/v1/potholes') 
     .then(response => {
         if (response.status === 404) {
             throw new Error("404: Not Found")
