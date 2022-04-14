@@ -14,8 +14,8 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = { potholes: [],
-      
-      // [ 
+
+      // [
       //   {
       //   id: 1,
       //   latitude: '39.74379494415912',
@@ -25,7 +25,7 @@ class App extends React.Component {
       //     'https://www.attorneystevelee.com/wp-content/uploads/pothole-road1.jpg',
       //     'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Large_pot_hole_on_2nd_Avenue_in_New_York_City.JPG/1920px-Large_pot_hole_on_2nd_Avenue_in_New_York_City.JPG'
       //   ]
-      //   }, 
+      //   },
       //   {
       //     id: 2,
       //     latitude: '39.74018534594094',
@@ -34,7 +34,7 @@ class App extends React.Component {
       //     pictures: [
       //       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Asphalt_deterioration.jpg/1024px-Asphalt_deterioration.jpg',
       //     ]
-      //   }, 
+      //   },
       //   {
       //     id: 3,
       //     latitude: '39.77998918688553',
@@ -72,13 +72,13 @@ class App extends React.Component {
 
   collectPotholePhotos = () => {
     return this.state.currentPothole.pictures.map(pic => {
-        return <a href={ pic }><img alt={pic} src={pic} className='pothole-picture'/> </a> 
+        return <a href={ pic }><img alt={pic} src={pic} className='pothole-picture'/> </a>
     })
 }
 
 
 
-  
+
   render() {
     const MapWrapped = withScriptjs(withGoogleMap(Map));
 
@@ -93,11 +93,12 @@ class App extends React.Component {
         <div className='form-map-container'>
           <Form addPothole={this.addPothole}/>
           <div className='pothole-form map-placeholder'>
-            <MapWrapped 
-            googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCNdw_FpGRuXLBOf6iS_K7qYCg3YrsRti8'} 
+            <MapWrapped
+            googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCNdw_FpGRuXLBOf6iS_K7qYCg3YrsRti8'}
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `100%` }} />}
             mapElement={<div style={{ height: `100%` }} />}
+            potholes={this.state.potholes}
             />
           </div>
         </div>
