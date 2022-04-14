@@ -4,8 +4,11 @@ import PotholeContainer from '../PotholeContainer/PotholeContainer';
 import Form from '../Form/Form'
 import PotholeDetail from '../PotholeDetail/PotholeDetail'
 import { fetchPotholes } from '../../apiCalls';
+import Map from '../Map/Map';
+import { withScriptjs, withGoogleMap } from "react-google-maps"
 
 // AIzaSyDjRoZ4cq5mC6f_bIYDVFwcZDnQluNKI6Q
+// AIzaSyCNdw_FpGRuXLBOf6iS_K7qYCg3YrsRti8
 
 class App extends React.Component {
   constructor () {
@@ -72,8 +75,13 @@ class App extends React.Component {
         return <a href={ pic }><img alt={pic} src={pic} className='pothole-picture'/> </a> 
     })
 }
+
+
+
   
   render() {
+    const MapWrapped = withScriptjs(withGoogleMap(Map));
+
     let display
     if(this.state.currentPothole) {
       display=<PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos}/>
@@ -84,7 +92,14 @@ class App extends React.Component {
         <h2>Denver, CO</h2>
         <div className='form-map-container'>
           <Form addPothole={this.addPothole}/>
-          <div className='pothole-form map-placeholder'>Map will go here</div>
+          <div className='pothole-form map-placeholder'>
+            <MapWrapped 
+            googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCNdw_FpGRuXLBOf6iS_K7qYCg3YrsRti8'} 
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `100%` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+            />
+          </div>
         </div>
         <PotholeContainer potholes={this.state.potholes} findPothole={this.findPothole}/>
       </main>
