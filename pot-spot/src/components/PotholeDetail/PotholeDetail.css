@@ -1,0 +1,22 @@
+.pothole-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location-detail {
+    background: #E0DADA;
+    width: 30%;
+    text-align: center;
+    margin: 10px;
+    /* color: white; */
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px #303030;
+}
+
+.pictures-detail {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: center;
+}
