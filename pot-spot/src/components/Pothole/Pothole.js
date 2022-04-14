@@ -5,7 +5,7 @@ const Pothole = ({latitude, longitude, description, pictures, id, findPothole}) 
     // const photoElements = pictures.map(picture => {
     //     return <a href={ picture }><img alt={picture} src={picture}/> </a>
     // })
-    const potholePreviewPhoto = <img src={pictures[0]} className='photo-preview'/>
+    // const potholePreviewPhoto = <img src={pictures[0]} className='photo-preview'/>
 
     return (
         <section className='pothole' onClick={() => findPothole(id)}>
@@ -15,9 +15,11 @@ const Pothole = ({latitude, longitude, description, pictures, id, findPothole}) 
                 <p className="longitude">{longitude}</p>
             </div>
             <div className="description">{description}</div>
-            <div className="pictures" >{potholePreviewPhoto}</div>
+            
         </section>
     )
 }
 
 export default Pothole
+
+// {/* <div className="pictures" >{potholePreviewPhoto}</div> */}
