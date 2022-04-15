@@ -77,7 +77,7 @@ class App extends React.Component {
           <div className='pothole-form map-placeholder'>
             <Map potholes={this.state.potholes} />
           </div>
-            {this.state.potholes[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} />}
+            {this.state.potholes[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />}
         </div>
 
 
