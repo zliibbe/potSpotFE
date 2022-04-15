@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class StatusBoard extends Component {
-  constructor(props) {
+constructor(props) {
     super(props);
 
     this.state = {
@@ -11,15 +11,33 @@ class StatusBoard extends Component {
     }
   }
 
-  buildStatusBoard = (potholes) => {
+  componentDidMount = () => {
+    this.buildStatusBoard(this.props.potholes);
+  }
 
+  buildStatusBoard = (potholes) => {
+    console.log("checking potholes being passed in", potholes)
+    const pending = [];
+    const inProgress = [];
+    const done = [];
     potholes.forEach(pothole => {
-      this.setState({[pothole.status]: pothole});
+      console.log(pothole)
+      if(pothole.status === 'pending') {
+      //   this.setState({pending: [...this.state.pending, pothole]})
+        pending.push(pothole);
+      } else if(pothole.status === 'inProgress') {
+        inProgress.push(pothole); 
+      } else if(pothole.status === 'done') {
+        done.push(pothole);
+      }
     })
+    this.setState({pending: pending});
+    this.setState({inProgress: inProgress});
+    this.setState({done: done});
   }
 
   buildStatusBox = (potholes) => {
-    console.log(potholes)
+    console.log("Potholes for buildStatusBox method", potholes)
     return potholes.map(ph => {
       return (
         <div className='pothole' key={ph.id}>
@@ -29,10 +47,10 @@ class StatusBoard extends Component {
     })
   }
 
+
   render() {
 
-    this.buildStatusBoard(this.props.potholes);
-    console.log(this.props)
+    // console.log(this.props)
     let pending = this.buildStatusBox(this.state.pending);
     let inProgress = this.buildStatusBox(this.state.inProgress);
     let done = this.buildStatusBox(this.state.done);
@@ -41,20 +59,17 @@ class StatusBoard extends Component {
         <div className='status-board'>
           <h2>Status Board</h2>
             <section className='pending status-box'>
-            {pending}
+              {pending}
             </section>
             <section className='in-progress status-box'>
-            {inProgress}
+              {inProgress}
             </section>
-
             <section className='complete status-box'>
-            {done}
+              {done}
             </section>
         </div>
     )
   }
-
 }
-
 
 export default StatusBoard;
