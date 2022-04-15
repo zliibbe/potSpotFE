@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {GoogleMap, Marker, InfoWindow} from "react-google-maps";
+import {GoogleMap, Marker, InfoWindow} from "@react-google-maps/api";
 
 class Map extends Component {
   constructor(props) {
@@ -18,8 +18,12 @@ class Map extends Component {
   render() {
     return (
         <GoogleMap
-            defaultZoom={10}
-            defaultCenter={{lat:39.742043, lng:-104.991531 }}
+            zoom={10}
+            center={{lat:39.742043, lng:-104.991531 }}
+            containerStyle={{
+              width: '100%',
+              height: '100%'
+            }}
         >
 
         {this.props.potholes.map(pothole => {
