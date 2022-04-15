@@ -6,9 +6,6 @@ import PotholeDetail from '../PotholeDetail/PotholeDetail'
 import { fetchPotholes, fetchPictures } from '../../apiCalls';
 import Map from '../Map/Map';
 
-// AIzaSyDjRoZ4cq5mC6f_bIYDVFwcZDnQluNKI6Q
-// AIzaSyCNdw_FpGRuXLBOf6iS_K7qYCg3YrsRti8
-
 class App extends React.Component {
   constructor () {
     super();
@@ -50,9 +47,6 @@ class App extends React.Component {
     })
 }
 
-
-
-
   render() {
 
     let display
@@ -78,7 +72,6 @@ class App extends React.Component {
     return (
       <main>
         {display}
-
       </main>
      )
   } ;
