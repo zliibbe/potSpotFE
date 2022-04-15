@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor () {
     super();
     this.state = { potholes: [],
-        currentPothole: ''
+        currentPothole: '',
     }
   }
 
@@ -60,7 +60,7 @@ class App extends React.Component {
 
 
   render() {
-
+    console.log("Checking if has status", this.state.potholes)
     let display
     if(this.state.currentPothole) {
       display=<PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos}/>
@@ -76,8 +76,8 @@ class App extends React.Component {
 
           <div className='pothole-form map-placeholder'>
             <Map potholes={this.state.potholes} />
-            {this.state.potholes[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} />}
           </div>
+            {this.state.potholes[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} />}
         </div>
 
 
