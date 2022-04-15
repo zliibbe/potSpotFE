@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {GoogleMap, Marker, InfoWindow, LoadScript} from "@react-google-maps/api";
+import './Map.css'
 
 class Map extends Component {
   constructor(props) {
@@ -16,6 +17,15 @@ class Map extends Component {
     this.setState({currentPothole: null})
   }
   render() {
+    let pictures;
+    let picturesImgs;
+    if(this.state.currentPothole){
+        pictures = this.props.pictures.filter(picture => picture.pothole_id === this.state.currentPothole.id)
+        picturesImgs = pictures.map(picture => {
+            return (<img key={picture.url} className="infoBoxPictures" src={picture.url}/>)
+        })
+    }    
+
     return (
 
       <LoadScript
@@ -35,7 +45,7 @@ class Map extends Component {
                 lat: parseFloat(pothole.latitude),
                 lng: parseFloat(pothole.longitude)
               }}
-              onClick={(event) => {
+              onClick={() => {
                 this.displayInfoWindow(pothole)
               }}
 
@@ -53,7 +63,11 @@ class Map extends Component {
               lng: parseFloat(this.state.currentPothole.longitude)
             }}
             >
-              <div>
+              <div className="infoBox">
+                <h1>Pothole {this.state.currentPothole.id}</h1>
+                <section className="pictureSection">
+                    {picturesImgs}
+                </section>
                 <p>{this.state.currentPothole.description}</p>
               </div>
 
