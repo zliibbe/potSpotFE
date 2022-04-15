@@ -3,18 +3,16 @@ import './App.css';
 import PotholeContainer from '../PotholeContainer/PotholeContainer';
 import Form from '../Form/Form'
 import PotholeDetail from '../PotholeDetail/PotholeDetail'
-import { fetchPotholes } from '../../apiCalls';
+import { fetchPotholes, fetchPictures } from '../../apiCalls';
 import Map from '../Map/Map';
 import StatusBoard from '../StatusBoard/StatusBoard';
-
-// AIzaSyDjRoZ4cq5mC6f_bIYDVFwcZDnQluNKI6Q
-// AIzaSyCNdw_FpGRuXLBOf6iS_K7qYCg3YrsRti8
 
 class App extends React.Component {
   constructor () {
     super();
     this.state = { potholes: [],
         currentPothole: '',
+        pictures: []
     }
   }
 
@@ -29,6 +27,12 @@ class App extends React.Component {
         console.log(data)
         return this.setState({
           potholes: data
+        })
+      })
+    fetchPictures()
+      .then(data => {
+        return this.setState({
+          pictures: data
         })
       })
 
@@ -69,15 +73,15 @@ class App extends React.Component {
       <main className='App'>
 
         <h1 className='title'>Pot Spot</h1>
-        <h2>Denver, CO</h2>
+        <h2 className='title'>Denver, CO</h2>
 
         <div className='form-map-container'>
           <Form addPothole={this.addPothole}/>
 
           <div className='pothole-form map-placeholder'>
-            <Map potholes={this.state.potholes} />
+            <Map potholes={this.state.potholes} pictures={this.state.pictures} />
           </div>
-            {this.state.potholes[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />}
+            {this.state.potholes[0] && this.state.pictures[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />}
         </div>
 
 
@@ -87,7 +91,6 @@ class App extends React.Component {
     return (
       <main>
         {display}
-
       </main>
      )
   } ;
