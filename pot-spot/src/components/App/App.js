@@ -5,6 +5,7 @@ import Form from '../Form/Form'
 import PotholeDetail from '../PotholeDetail/PotholeDetail'
 import { fetchPotholes } from '../../apiCalls';
 import Map from '../Map/Map';
+import StatusBoard from '../StatusBoard/StatusBoard';
 
 // AIzaSyDjRoZ4cq5mC6f_bIYDVFwcZDnQluNKI6Q
 // AIzaSyCNdw_FpGRuXLBOf6iS_K7qYCg3YrsRti8
@@ -20,6 +21,11 @@ class App extends React.Component {
   componentDidMount = () => {
     fetchPotholes()
       .then(data => {
+        console.log(data)
+        data.forEach(pothole => {
+          pothole.status = 'pending';
+        })
+
         console.log(data)
         return this.setState({
           potholes: data
@@ -44,7 +50,13 @@ class App extends React.Component {
     })
 }
 
-
+  changeStatus = (pothole) => {
+    if(pothole.status === 'pending') {
+      pothole.status = 'inProgress';
+    } else if (pothole.status === 'inProgress') {
+      pothole.status = 'done';
+    }
+  }
 
 
   render() {
@@ -64,8 +76,11 @@ class App extends React.Component {
 
           <div className='pothole-form map-placeholder'>
             <Map potholes={this.state.potholes} />
+            {this.state.potholes[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} />}
           </div>
         </div>
+
+
         <PotholeContainer potholes={this.state.potholes} findPothole={this.findPothole}/>
       </main>
     }
