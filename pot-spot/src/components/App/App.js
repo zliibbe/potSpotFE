@@ -71,21 +71,19 @@ class App extends React.Component {
     } else {
       display=
       <main className='App'>
+        <header>
+          <h1 className='title'>Pot Spot</h1>
+          <h2 className='title'>Denver, CO</h2>
+        </header>
 
-        <h1 className='title'>Pot Spot</h1>
-        <h2 className='title'>Denver, CO</h2>
+
 
         <div className='form-map-container'>
-          <Form addPothole={this.addPothole}/>
-
           <div className='pothole-form map-placeholder'>
             <Map potholes={this.state.potholes} pictures={this.state.pictures} />
           </div>
-            {this.state.potholes[0] && this.state.pictures[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />}
         </div>
-
-
-        <PotholeContainer potholes={this.state.potholes} findPothole={this.findPothole}/>
+        {this.state.potholes[0] && this.state.pictures[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />}
       </main>
     }
     return (
