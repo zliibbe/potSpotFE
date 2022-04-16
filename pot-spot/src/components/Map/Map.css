@@ -1,4 +1,4 @@
-.infoBox {
+.info-box {
     color: black;
 }
 
@@ -6,12 +6,12 @@ h1 {
     color:black;
 }
 
-.infoBoxPictures {
-    width: 25%;
+.info-box-pictures {
+    width: 20%;
     margin-left:10px;
 }
 
-.pictureSection {
+.picture-section {
     display: flex;
     align-items: center;
     justify-content: center;
