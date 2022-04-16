@@ -4,7 +4,7 @@ import PotholeDetail from '../PotholeDetail/PotholeDetail'
 import { fetchPotholes, fetchPictures } from '../../apiCalls';
 import Map from '../Map/Map';
 import StatusBoard from '../StatusBoard/StatusBoard';
-import { Route, Routes } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 
@@ -82,12 +82,12 @@ class App extends React.Component {
     //   display =
     return (
       <main className='app'>
-        <Routes>
-        <Route exact path="/" render={() => <Header />} />
-        <Route exact path="/" render={() => <Form />} />
-        <Route exact path="/" render={() => <Map potholes={this.state.potholes} pictures={this.state.pictures} />} />
-        <Route exact path="/" render={() => { this.state.potholes[0] && this.state.pictures[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} /> }} />
-        </Routes>
+        
+          <Route exact path="/" render={() => <Header />} />
+          <Route exact path="/" render={() => <Form />} />
+          <Route exact path="/" render={() => <Map potholes={this.state.potholes} pictures={this.state.pictures} />} />
+          <Route exact path="/" render={() => { this.state.potholes[0] && this.state.pictures[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} /> }} />
+        
       </main>
     )
   }
