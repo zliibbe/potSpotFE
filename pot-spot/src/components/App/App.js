@@ -86,7 +86,7 @@ class App extends React.Component {
           <Route exact path="/" render={() => <Header />} />
           <Route exact path="/" render={() => <Form />} />
           <Route exact path="/" render={() => <Map potholes={this.state.potholes} pictures={this.state.pictures} />} />
-          <Route exact path="/" render={() => { this.state.potholes[0] && this.state.pictures[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} /> }} />
+          <Route exact path="/" render={() => <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} /> } />
         
       </main>
     )
