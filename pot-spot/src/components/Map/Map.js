@@ -64,9 +64,9 @@ class Map extends Component {
                                         lng: parseFloat(this.state.currentPothole.longitude)
                                     }}
                                 >
-                                    <div className="infoBox">
+                                    <div className="info-box">
                                         <h1>Pothole {this.state.currentPothole.id}</h1>
-                                        <section className="pictureSection">
+                                        <section className="picture-section">
                                             {picturesImgs}
                                         </section>
                                         <p>{this.state.currentPothole.description}</p>
