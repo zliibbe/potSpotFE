@@ -103,10 +103,11 @@ class App extends React.Component {
             render={({match}) => {
               let id = parseInt(match.params.id);
               let pothole = this.state.potholes.find(ph => ph.id === id)
+              let potholePictures = this.state.pictures.filter(pic => pic.pothole_id === id)
               return (
                 <React.Fragment>
                 <Header home={true} />
-                <Pothole pothole={pothole} />
+                <Pothole pothole={pothole} potholePictures={potholePictures}/>
                 </React.Fragment>
               )
             }} />
