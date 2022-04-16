@@ -2,13 +2,16 @@ import React from "react"
 import './Pothole.css'
 
 const Pothole = (props) => {
-    // const photoElements = pictures.map(picture => {
-    //     return <a href={ picture }><img alt={picture} src={picture}/> </a>
-    // })
-    // const potholePreviewPhoto = <img src={pictures[0]} className='photo-preview'/>
     let potholeDisplay = ''
-    if(props.pothole) {
-      const {latitude, longitude, description, pictures, id, findPothole} = props.pothole;
+    let picturesDisplay = ''
+    if(props.pothole && props.potholePictures) {
+      const {latitude, longitude, description, id, findPothole} = props.pothole;
+      const pictures = props.potholePictures
+      console.log(pictures)
+      console.log(props)
+      picturesDisplay = pictures.map(picture => {
+        return <img alt="Pothole" src={picture.url}/>
+      })
       potholeDisplay = <section className='pothole' onClick={() => findPothole(id)}>
         <div className="location">
           <h3>Location</h3>
@@ -22,6 +25,7 @@ const Pothole = (props) => {
     return (
       <React.Fragment>
         {potholeDisplay}
+        {picturesDisplay}
       </React.Fragment>
     )
 }
