@@ -76,11 +76,6 @@ class App extends React.Component {
 
 
   render() {
-    // let display
-    // if (this.state.currentPothole) {
-    //   display = <PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos} />
-    // } else {
-    //   display =
     return (
       <main className='app'>
 
@@ -112,16 +107,16 @@ class App extends React.Component {
               )
             }} />
 
+          <Route
+            exact path='/statusboard'
+            render={() => {
+              <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />
+            }} />
+
         </Switch>
       </main>
     )
   }
-  // return (
-  //   <main>
-  //     {display}
-  //   </main>
-  // )
-  //   };
 }
 
 export default App;
