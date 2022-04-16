@@ -38,6 +38,7 @@ class Form extends React.Component {
     render() {
         return (
             <form className='pothole-form'>
+                <p>Submit New Pothole:</p>
                 <input 
                     type="text"
                     name="latitude"

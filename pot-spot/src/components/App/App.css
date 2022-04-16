@@ -1,9 +1,3 @@
-header {
-  width: 100%;
-  padding: 2rem;
-  background-color: white;
-  margin-bottom: 3rem;
-}
 
 .title {
   color: black;
@@ -14,6 +8,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .form-map-container {
@@ -23,8 +18,8 @@ header {
 }
 
 .map-placeholder {
-  width: 50vw;
-  height: 50vh;
+  width: 70vw;
+  height: 70vh;
 }
 
 .pothole-picture {

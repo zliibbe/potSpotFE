@@ -24,4 +24,25 @@ const fetchPictures = () => {
      return fetchCall
  }
 
-export { fetchPotholes, fetchPictures }
+
+ const addPothole = (newPothole) => {
+    return fetch('https://pot-spot.herokuapp.com/api/v1/potholes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newPothole)
+    })
+      .then(response => {
+        console.log(response)
+  
+        if (!response.ok) {
+          throw new Error("Please make sure that all fields are filled out")
+  
+        } else {
+  
+          return response.json()
+        }
+      })
+  
+  }
+
+export { fetchPotholes, fetchPictures, addPothole }

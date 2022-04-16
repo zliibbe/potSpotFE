@@ -4,7 +4,8 @@ import PotholeDetail from '../PotholeDetail/PotholeDetail'
 import { fetchPotholes, fetchPictures } from '../../apiCalls';
 import Map from '../Map/Map';
 import StatusBoard from '../StatusBoard/StatusBoard';
-import { Route } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import Pothole from '../Pothole/Pothole'
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 
@@ -75,28 +76,51 @@ class App extends React.Component {
 
 
   render() {
-    // let display
-    // if (this.state.currentPothole) {
-    //   display = <PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos} />
-    // } else {
-    //   display =
     return (
       <main className='app'>
-        
-          <Route exact path="/" render={() => <Header />} />
-          <Route exact path="/" render={() => <Form />} />
-          <Route exact path="/" render={() => <Map potholes={this.state.potholes} pictures={this.state.pictures} />} />
-          <Route exact path="/" render={() => <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} /> } />
-        
+        <Switch>
+          <Redirect exact from='/' to='/home' />
+          <Route
+            exact path='/home'
+            render={() => {
+              return (
+                <React.Fragment>
+                <Header />
+                <Form />
+                <Map potholes={this.state.potholes} pictures={this.state.pictures} />
+                </React.Fragment>
+              )
+            }} />
+
+          <Route
+            exact path='/potholes/:id'
+            render={({match}) => {
+              let id = parseInt(match.params.id);
+              let pothole = this.state.potholes.find(ph => ph.id === id)
+              let potholePictures = this.state.pictures.filter(pic => pic.pothole_id === id)
+              return (
+                <React.Fragment>
+                <Header home={true} />
+                <Pothole pothole={pothole} potholePictures={potholePictures}/>
+                </React.Fragment>
+              )
+            }} />
+
+          <Route
+            exact path='/statusboard'
+            render={() => {
+              return (
+                <React.Fragment>
+                <Header home={true}/>
+                <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />
+                </React.Fragment>
+              )
+            }} />
+
+        </Switch>
       </main>
     )
   }
-  // return (
-  //   <main>
-  //     {display}
-  //   </main>
-  // )
-  //   };
 }
 
 export default App;
