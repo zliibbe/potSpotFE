@@ -70,6 +70,7 @@ class Map extends Component {
                                             {picturesImgs}
                                         </section>
                                         <p>{this.state.currentPothole.description}</p>
+                                        <p>Location: lat-{this.state.currentPothole.latitude}, long-{this.state.currentPothole.longitude}</p>
                                     </div>
 
                                 </InfoWindow>
