@@ -1,3 +1,13 @@
+hr {
+  position: relative;
+  top: 20px;
+  border: none;
+  height: 12px;
+  background: darkgray;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
 .status-board {
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -43,7 +53,7 @@
 }
 
 .status {
-  border-radius: 25px;
+  border-radius: 25 px;
   color: black;
   padding: .5rem;
 }
