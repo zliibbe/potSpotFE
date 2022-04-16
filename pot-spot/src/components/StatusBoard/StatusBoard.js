@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import StatusUpdater from '../StatusUpdater/StatusUpdater.js'
 import './StatusBoard.css'
 
@@ -11,7 +11,7 @@ function StatusBoard (props) {
       return (
         <div className='status-pothole' key={ph.id}>
           <div className='image-container'>
-          <img className='pothole-image' src={image[0].url}/>
+          <img className='pothole-image' src={image[0].url} alt="Pothole"/>
           </div>
           <h4>Pothole #{ph.id}</h4>
           <p>{ph.description}</p>
@@ -21,7 +21,7 @@ function StatusBoard (props) {
           {ph.status === 'inProgress' ? ' Being worked on' : ''}
           {ph.status === 'done' ? ' Done' : ''}
           </p>
-          {ph.status != 'done' ?<StatusUpdater changeStatus={props.changeStatus} pothole={ph} /> : ''}
+          {ph.status !== 'done' ? <StatusUpdater changeStatus={props.changeStatus} pothole={ph} /> : ''}
         </div>
       )
     })

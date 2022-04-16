@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import PotholeContainer from '../PotholeContainer/PotholeContainer';
-import Form from '../Form/Form'
 import PotholeDetail from '../PotholeDetail/PotholeDetail'
 import { fetchPotholes, fetchPictures } from '../../apiCalls';
 import Map from '../Map/Map';
