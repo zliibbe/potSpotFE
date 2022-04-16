@@ -23,7 +23,7 @@ class Map extends Component {
         if (this.state.currentPothole) {
             pictures = this.props.pictures.filter(picture => picture.pothole_id === this.state.currentPothole.id)
             picturesImgs = pictures.map(picture => {
-                return (<img key={picture.url} className="infoBoxPictures" src={picture.url} />)
+                return (<img key={picture.url} className="infoBoxPictures" src={picture.url} alt="Pothole" />)
             })
         }
 

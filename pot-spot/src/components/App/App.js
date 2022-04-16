@@ -1,10 +1,9 @@
 import React from 'react';
 import './App.css';
-import PotholeContainer from '../PotholeContainer/PotholeContainer';
-import Form from '../Form/Form'
 import PotholeDetail from '../PotholeDetail/PotholeDetail'
 import { fetchPotholes, fetchPictures } from '../../apiCalls';
 import Map from '../Map/Map';
+import StatusBoard from '../StatusBoard/StatusBoard';
 
 class App extends React.Component {
   constructor () {
@@ -18,11 +17,16 @@ class App extends React.Component {
   componentDidMount = () => {
     fetchPotholes()
       .then(data => {
+        data.forEach(pothole => {
+          pothole.status = 'pending';
+        })
         return this.setState({
           potholes: data
         })
+
       })
-      fetchPictures()
+
+    fetchPictures()
       .then(data => {
         return this.setState({
           pictures: data
@@ -47,26 +51,45 @@ class App extends React.Component {
     })
 }
 
-  render() {
+  changeStatus = (pothole) => {
+    let index = this.state.potholes.findIndex((ph)=>{
+      return ph.id === pothole.id
+    });
 
+    let newPotholes = [...this.state.potholes]
+    let updatePothole = newPotholes[index]
+
+    if(updatePothole.status === 'pending') {
+      updatePothole.status = 'inProgress';
+      this.setState({potholes: [...newPotholes]})
+    } else if (updatePothole.status === 'inProgress') {
+      updatePothole.status = 'done';
+      this.setState({potholes: [...newPotholes]})
+    }
+    return
+  }
+
+
+  render() {
     let display
     if(this.state.currentPothole) {
       display=<PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos}/>
     } else {
       display=
       <main className='App'>
+        <header>
+          <h1 className='title'>Pot Spot</h1>
+          <h2 className='title'>Denver, CO</h2>
+        </header>
 
-        <h1 className='title'>Pot Spot</h1>
-        <h2 className='title'>Denver, CO</h2>
+
 
         <div className='form-map-container'>
-          <Form addPothole={this.addPothole}/>
-
           <div className='pothole-form map-placeholder'>
             <Map potholes={this.state.potholes} pictures={this.state.pictures} />
           </div>
         </div>
-        <PotholeContainer potholes={this.state.potholes} findPothole={this.findPothole}/>
+        {this.state.potholes[0] && this.state.pictures[0] && <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />}
       </main>
     }
     return (

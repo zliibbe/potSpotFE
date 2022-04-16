@@ -1,0 +1,61 @@
+.status-board {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 9px;
+    width: 30%;
+    box-shadow: 4px 4px 10px #303030;
+}
+
+.image-container {
+  overflow: hidden;
+  margin: 0;
+  display: contents
+}
+
+.pothole-image {
+  width: 100%;
+  max-height: 50%;
+}
+
+.status-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+.status-pothole {
+  width: 40%;
+  background: #E0DADA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 4px 10px #808080;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.status-board-title {
+  width: 100%;
+}
+
+.status {
+  border-radius: 25px;
+  color: black;
+  padding: .5rem;
+}
+
+.pending {
+  background-color: red;
+}
+
+.inProgress {
+  background-color: yellow;
+}
+
+.done {
+  background-color: green;
+}
