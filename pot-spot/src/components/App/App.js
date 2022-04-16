@@ -55,11 +55,23 @@ class App extends React.Component {
 }
 
   changeStatus = (pothole) => {
-    if(pothole.status === 'pending') {
-      pothole.status = 'inProgress';
-    } else if (pothole.status === 'inProgress') {
-      pothole.status = 'done';
+    let index = this.state.potholes.findIndex((ph)=>{
+      return ph.id === pothole.id
+    });
+
+    console.log(index);
+    console.log(pothole);
+    let newPotholes = [...this.state.potholes]
+    let updatePothole = newPotholes[index]
+
+    if(updatePothole.status === 'pending') {
+      updatePothole.status = 'inProgress';
+      this.setState({potholes: [...newPotholes]})
+    } else if (updatePothole.status === 'inProgress') {
+      updatePothole.status = 'done';
+      this.setState({potholes: [...newPotholes]})
     }
+    return
   }
 
 
