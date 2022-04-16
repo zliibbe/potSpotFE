@@ -78,7 +78,6 @@ class App extends React.Component {
   render() {
     return (
       <main className='app'>
-
         <Switch>
           <Redirect exact from='/' to='/home' />
           <Route
@@ -87,8 +86,8 @@ class App extends React.Component {
               return (
                 <React.Fragment>
                 <Header />
+                <Form />
                 <Map potholes={this.state.potholes} pictures={this.state.pictures} />
-                <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />
                 </React.Fragment>
               )
             }} />
@@ -110,7 +109,12 @@ class App extends React.Component {
           <Route
             exact path='/statusboard'
             render={() => {
-              <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />
+              return (
+                <React.Fragment>
+                <Header home={true}/>
+                <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} />
+                </React.Fragment>
+              )
             }} />
 
         </Switch>
