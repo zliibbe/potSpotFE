@@ -1,8 +1,4 @@
-img {
-    
-}
-
-.pothole {
+/* .pothole {
     background: #E0DADA;
     display: flex;
     flex-direction: column;
@@ -16,11 +12,11 @@ img {
     margin: 10px;
     
     /* max-height: 90%; */
-}
 
-.pictures {
+
+/* .pictures {
     max-width: 80%;
     /* height: 20%; */
     
-}
+
 
