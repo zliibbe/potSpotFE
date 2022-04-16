@@ -5,7 +5,7 @@ import { fetchPotholes, fetchPictures } from '../../apiCalls';
 import Map from '../Map/Map';
 import StatusBoard from '../StatusBoard/StatusBoard';
 import { Route, Switch, Redirect } from 'react-router-dom'
-import PotholeContainer from '../PotholeContainer/PotholeContainer.js'
+import Pothole from '../Pothole/Pothole'
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 
@@ -101,11 +101,12 @@ class App extends React.Component {
           <Route
             exact path='/potholes/:id'
             render={({match}) => {
-              let id = match.params.id;
+              let id = parseInt(match.params.id);
+              let pothole = this.state.potholes.find(ph => ph.id === id)
               return (
                 <React.Fragment>
                 <Header home={true} />
-                {/*<PotholeContainer id={id} /> */}
+                <Pothole pothole={pothole} />
                 </React.Fragment>
               )
             }} />
