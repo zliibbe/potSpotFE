@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './StatusBoard.css'
 
 class StatusBoard extends Component {
 constructor(props) {
@@ -13,7 +14,7 @@ constructor(props) {
 
   componentDidMount = () => {
     this.buildStatusBoard(this.props.potholes);
-    
+
   }
 
   buildStatusBoard = (potholes) => {
@@ -24,7 +25,7 @@ constructor(props) {
       if(pothole.status === 'pending') {
         pending.push(pothole);
       } else if(pothole.status === 'inProgress') {
-        inProgress.push(pothole); 
+        inProgress.push(pothole);
       } else if(pothole.status === 'done') {
         done.push(pothole);
       }
@@ -40,8 +41,10 @@ constructor(props) {
       image = this.props.pictures.filter(pic => pic.pothole_id === ph.id)
       console.log("Image", typeof image[0])
       return (
-        <div className='pothole' key={ph.id}>
-          <img src={image[0].url}/>
+        <div className='status-pothole' key={ph.id}>
+          <div className='image-container'>
+          <img className='pothole-image' src={image[0].url}/>
+          </div>
           <p>{ph.description}</p>
         </div>
       )
@@ -49,7 +52,7 @@ constructor(props) {
   }
 
 
-  
+
 
   render() {
     let pending = this.buildStatusBox(this.state.pending);
@@ -58,17 +61,17 @@ constructor(props) {
 
     return (
         <div className='status-board'>
-          <h2>Status Board</h2>
+          <h2 className='status-board-title'>Status Board</h2>
+          <h3 className='status-board-title'>Pending</h3>
             <section className='pending status-box'>
-              <h3>Pending</h3>
               {pending}
             </section>
+            <h3 className='status-board-title'>In Progress</h3>
             <section className='in-progress status-box'>
-              <h3>In Progress</h3>
               {inProgress}
             </section>
+            <h3 className='status-board-title'>Done</h3>
             <section className='complete status-box'>
-              <h3>Done</h3>
               {done}
             </section>
         </div>
