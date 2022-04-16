@@ -46,10 +46,12 @@ function StatusBoard(props) {
         <section className='status-box'>
           {pending}
         </section>
+        <hr />
         <h3 className='status-board-title'>In Progress</h3>
         <section className='status-box'>
           {inProgress}
         </section>
+        <hr />
         <h3 className='status-board-title'>Done</h3>
         <section className='status-box'>
           {done}
