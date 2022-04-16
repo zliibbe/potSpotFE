@@ -19,16 +19,15 @@ class App extends React.Component {
   componentDidMount = () => {
     fetchPotholes()
       .then(data => {
-        console.log(data)
         data.forEach(pothole => {
           pothole.status = 'pending';
         })
-
-        console.log(data)
         return this.setState({
           potholes: data
         })
+
       })
+
     fetchPictures()
       .then(data => {
         return this.setState({
@@ -59,8 +58,6 @@ class App extends React.Component {
       return ph.id === pothole.id
     });
 
-    console.log(index);
-    console.log(pothole);
     let newPotholes = [...this.state.potholes]
     let updatePothole = newPotholes[index]
 
@@ -76,7 +73,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log("Checking if has status", this.state.potholes)
     let display
     if(this.state.currentPothole) {
       display=<PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos}/>
