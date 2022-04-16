@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StatusUpdater from '../StatusUpdater/StatusUpdater.js'
 import './StatusBoard.css'
 
@@ -22,8 +23,12 @@ function StatusBoard(props) {
             {ph.status === 'inProgress' ? ' Being worked on' : ''}
             {ph.status === 'done' ? ' Done' : ''}
           </p>
+          <Link to={`/potholes/${ph.id}`}>
+          <button>Manage Status</button>
+          </Link>
           {ph.status !== 'done' ? <StatusUpdater changeStatus={props.changeStatus} pothole={ph} /> : ''}
         </div>
+
       )
     })}
   }
@@ -33,12 +38,12 @@ function StatusBoard(props) {
   let inProgress = buildStatusBox(props.potholes.filter(pothole => pothole.status === 'inProgress'));
   let done = buildStatusBox(props.potholes.filter(pothole => pothole.status === 'done'));
 
-  
+
     return (
       <div className='status-board'>
         <h2 className='status-board-title'>Status Board</h2>
         <h3 className='status-board-title'>Pending</h3>
-        <section className=' status-box'>
+        <section className='status-box'>
           {pending}
         </section>
         <h3 className='status-board-title'>In Progress</h3>
