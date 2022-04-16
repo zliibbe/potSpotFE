@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { GoogleMap, Marker, InfoWindow, LoadScript } from "@react-google-maps/api";
-import './Map.css'
 import apiKey from "../../apiKey";
+import { NavLink } from "react-router-dom"
+import './Map.css'
 
 class Map extends Component {
     constructor(props) {
@@ -71,6 +72,7 @@ class Map extends Component {
                                         </section>
                                         <p>{this.state.currentPothole.description}</p>
                                         <p>Location: lat-{this.state.currentPothole.latitude}, long-{this.state.currentPothole.longitude}</p>
+                                        <NavLink to={'/statusBoard'} ><button>Status Board</button></NavLink>
                                     </div>
 
                                 </InfoWindow>
