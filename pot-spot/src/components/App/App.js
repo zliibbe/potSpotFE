@@ -75,28 +75,17 @@ class App extends React.Component {
 
 
   render() {
-    // let display
-    // if (this.state.currentPothole) {
-    //   display = <PotholeDetail currentPothole={this.state.currentPothole} collectPotholePhotos={this.collectPotholePhotos} />
-    // } else {
-    //   display =
     return (
       <main className='app'>
         
-          <Route exact path="/" render={() => <Header />} />
+          <Header />
           <Route exact path="/" render={() => <Form />} />
           <Route exact path="/" render={() => <Map potholes={this.state.potholes} pictures={this.state.pictures} />} />
-          <Route exact path="/" render={() => <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} /> } />
+          <Route exact path="/statusBoard" render={() => <StatusBoard potholes={this.state.potholes} changeStatus={this.changeStatus} pictures={this.state.pictures} /> } />
         
       </main>
     )
   }
-  // return (
-  //   <main>
-  //     {display}
-  //   </main>
-  // )
-  //   };
 }
 
 export default App;
