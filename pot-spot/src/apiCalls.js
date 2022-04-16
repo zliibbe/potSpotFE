@@ -25,7 +25,7 @@ const fetchPictures = () => {
  }
 
 
- const addPothole = (newPothole) => {
+ const postNewPothole = (newPothole) => {
     return fetch('https://pot-spot.herokuapp.com/api/v1/potholes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -45,4 +45,4 @@ const fetchPictures = () => {
   
   }
 
-export { fetchPotholes, fetchPictures, addPothole }
+export { fetchPotholes, fetchPictures, postNewPothole }

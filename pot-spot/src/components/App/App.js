@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import PotholeDetail from '../PotholeDetail/PotholeDetail'
-import { fetchPotholes, fetchPictures } from '../../apiCalls';
+import { fetchPotholes, fetchPictures, postNewPothole } from '../../apiCalls';
 import Map from '../Map/Map';
 import StatusBoard from '../StatusBoard/StatusBoard';
 import { Route, Switch, Redirect } from 'react-router-dom'
@@ -41,7 +41,9 @@ class App extends React.Component {
   }
 
   addPothole = (newPothole) => {
+    postNewPothole(newPothole)
     this.setState({ potholes: [...this.state.potholes, newPothole] })
+    
   }
 
   findPothole = (id) => {
@@ -86,7 +88,7 @@ class App extends React.Component {
               return (
                 <React.Fragment>
                 <Header />
-                <Form />
+                <Form addPothole={this.addPothole}/>
                 <Map potholes={this.state.potholes} pictures={this.state.pictures} />
                 </React.Fragment>
               )
