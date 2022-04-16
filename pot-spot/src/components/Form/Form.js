@@ -16,7 +16,10 @@ class Form extends React.Component {
         event.preventDefault();
         const newPothole = {
             id: Date.now(),
-            ...this.state
+            latitude: this.state.latitude,
+            longitude: this.state.longitude,
+            description: this.state.description,
+            pictures: [this.state.pictures]
         }
         this.props.addPothole(newPothole);
         this.clearInputs();
@@ -30,6 +33,10 @@ class Form extends React.Component {
             pictures: []
         })
     }
+
+    addPothole = () => {
+        this.props.addPothole(this.state)
+      }
 
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
