@@ -73,6 +73,7 @@ class Map extends Component {
                                         <p>{this.state.currentPothole.description}</p>
                                         <p>Location: lat-{this.state.currentPothole.latitude}, long-{this.state.currentPothole.longitude}</p>
                                         <NavLink to={'/statusBoard'} ><button>Status Board</button></NavLink>
+                                        <NavLink to={`/potholes/${this.state.currentPothole.id}`}><button>Manage Pothole</button></NavLink>
                                     </div>
 
                                 </InfoWindow>
