@@ -18,6 +18,12 @@ class Map extends Component {
     closeWindow = () => {
         this.setState({ currentPothole: null })
     }
+
+    displayLocation = (e) => {
+        var lat = e.latLng.lat();
+        var lng = e.latLng.lng();
+        alert("Lat =" + lat + "; Lng =" + lng)
+    }
     render() {
         let pictures;
         let picturesImgs;
@@ -37,6 +43,7 @@ class Map extends Component {
                         <GoogleMap
                             zoom={12}
                             center={{ lat: 39.742043, lng: -104.991531 }}
+                            onRightClick={(e) => this.displayLocation(e)}
                             mapContainerStyle={{
                                 width: '100%',
                                 height: '100%'
