@@ -8,7 +8,8 @@ class Map extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentPothole: null
+            currentPothole: null,
+            rightClick: null
         }
     }
 
@@ -16,11 +17,34 @@ class Map extends Component {
         this.setState({ currentPothole: pothole })
     }
     closeWindow = () => {
-        this.setState({ currentPothole: null })
+        this.setState({ currentPothole: null, rightClick: null })
     }
+
+    displayLocation = (e) => {
+        let lat = e.latLng.lat();
+        let lng = e.latLng.lng();
+        // alert("Lat =" + lat + "; Lng =" + lng)
+        this.setState({
+            rightClick: < InfoWindow
+                onCloseClick={() => {
+                    this.closeWindow();
+                }}
+                position={{
+                    lat: lat,
+                    lng: lng
+                }}
+            >
+                <div className="info-box">
+                    <p>Lat = {lat}; Lng = {lng}</p>
+                </div>
+            </InfoWindow >
+        })
+    }
+
     render() {
         let pictures;
         let picturesImgs;
+
         if (this.state.currentPothole) {
             pictures = this.props.pictures.filter(picture => picture.pothole_id === this.state.currentPothole.id)
             picturesImgs = pictures.map(picture => {
@@ -37,6 +61,7 @@ class Map extends Component {
                         <GoogleMap
                             zoom={12}
                             center={{ lat: 39.742043, lng: -104.991531 }}
+                            onRightClick={(e) => this.displayLocation(e)}
                             mapContainerStyle={{
                                 width: '100%',
                                 height: '100%'
@@ -54,7 +79,7 @@ class Map extends Component {
                                         }}
                                     />)
                             })}
-
+                            {this.state.rightClick}
                             {this.state.currentPothole && (
                                 <InfoWindow
                                     onCloseClick={() => {
@@ -81,12 +106,12 @@ class Map extends Component {
 
                         </GoogleMap>
                     </LoadScript>
-</div>
-</div>
+                </div>
+            </div>
 
 
-                    )
+        )
     }
 }
 
-                    export default Map
+export default Map
