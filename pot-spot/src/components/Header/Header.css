@@ -1,6 +1,34 @@
 header {
+    display: flex;
+    color: #E7EAED;
+    align-items:flex-end;
+    justify-content: space-between;
     width: 100%;
     padding: 1rem;
-    background-color: white;
+    /* background-color: white; */
+    background-image: url(../../assets/road2.jpeg);
+    background-size:contain;
     margin-bottom: 2rem;
+  }
+
+  .header-button {
+    color:#E7EAED;
+    font-size: 200%;
+    text-decoration: none;
+    transition: .5s;
+    
+  }
+  .title {
+    margin-bottom: 22px;
+    font-size: 250%;
+    color: #E7EAED;
+  }
+
+  a:link, a:visited, a:active {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: green;
+    transform: scale(1.09)
   }
