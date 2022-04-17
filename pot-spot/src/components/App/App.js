@@ -44,12 +44,10 @@ class App extends React.Component {
 
   addPothole = (newPothole) => {
     postNewPothole(newPothole)
-    this.setState({ potholes: [...this.state.potholes, newPothole] })
-    
+    .then(() => this.loadPotholes())
   }
 
   findPothole = (id) => {
-
     const singlePothole = this.state.potholes.find(ph => ph.id === id)
     this.setState({ currentPothole: singlePothole })
   }
@@ -85,7 +83,6 @@ class App extends React.Component {
     })
     .then(() => {
       this.loadPotholes()
-
     })
   } 
 
