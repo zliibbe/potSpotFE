@@ -8,7 +8,6 @@ const Pothole = (props) => {
   if (props.pothole && props.potholePictures) {
     const { latitude, longitude, description, id } = props.pothole;
     const pictures = props.potholePictures;
-    console.log("props: ", props)
     picturesDisplay = pictures.map((picture) => {
       return (
         <img
