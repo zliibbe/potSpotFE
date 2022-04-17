@@ -10,7 +10,7 @@ const Pothole = (props) => {
       console.log(pictures)
       console.log(props)
       picturesDisplay = pictures.map(picture => {
-        return <img alt="Pothole" src={picture.url}/>
+        return <img key={picture.pothole_id} alt="Pothole" src={picture.url}/>
       })
       potholeDisplay = <section className='pothole' onClick={() => findPothole(id)}>
         <div className="location">
