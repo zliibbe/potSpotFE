@@ -30,8 +30,8 @@ class Map extends Component {
                     this.closeWindow();
                 }}
                 position={{
-                    lat: e.latLng.lat(),
-                    lng: e.latLng.lng()
+                    lat: lat,
+                    lng: lng
                 }}
             >
                 <div className="info-box">
