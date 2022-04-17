@@ -12,14 +12,18 @@ header {
   }
 
   .header-button {
-    color:#E7EAED;
+    color:black;
+    padding-right: 5px;
+    padding-left: 5px;
     font-size: 200%;
     text-decoration: none;
     transition: .5s;
+    background-color: #D6BD2D;
+    border-radius: 20px;
     
   }
   .title {
-    margin-bottom: 22px;
+    margin-bottom: 15px;
     font-size: 250%;
     color: #E7EAED;
   }
