@@ -1,5 +1,6 @@
 import React from "react";
 import "./Pothole.css";
+import { Link } from "react-router-dom"
 
 const Pothole = (props) => {
   let potholeDisplay = "";
@@ -26,7 +27,9 @@ const Pothole = (props) => {
           <p className="longitude">{longitude}</p>
         </div>
         <div className="description">{description}</div>
+        <Link to="/home">
         <button onClick={() => props.removePothole(id)}>X</button>
+        </Link>
       </section>
     );
   }
