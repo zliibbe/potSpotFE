@@ -15,7 +15,6 @@ class Form extends React.Component {
     submitPothole = (event) => {
         event.preventDefault();
         const newPothole = {
-            id: Date.now(),
             latitude: this.state.latitude,
             longitude: this.state.longitude,
             description: this.state.description,
