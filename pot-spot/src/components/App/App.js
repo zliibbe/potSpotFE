@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
 import PotholeDetail from '../PotholeDetail/PotholeDetail'
-import { fetchPotholes, fetchPictures, postNewPothole } from '../../apiCalls';
+import { fetchPotholes, fetchPictures, postNewPothole, deletePothole } from '../../apiCalls';
 import Map from '../Map/Map';
 import StatusBoard from '../StatusBoard/StatusBoard';
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Pothole from '../Pothole/Pothole'
 import Header from '../Header/Header';
 import Form from '../Form/Form';
-
 class App extends React.Component {
   constructor() {
     super();
@@ -19,7 +18,7 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount = () => {
+  loadPotholes = () => {
     fetchPotholes()
       .then(data => {
         data.forEach(pothole => {
@@ -37,7 +36,10 @@ class App extends React.Component {
           pictures: data
         })
       })
+  }
 
+  componentDidMount = () => {
+    this.loadPotholes()
   }
 
   addPothole = (newPothole) => {
@@ -76,6 +78,17 @@ class App extends React.Component {
     return
   }
 
+  removePothole = (id) => {
+    deletePothole(id)
+    .then(response => {
+      console.log(response)
+    })
+    .then(() => {
+      this.loadPotholes()
+
+    })
+  } 
+
 
   render() {
     return (
@@ -103,7 +116,7 @@ class App extends React.Component {
               return (
                 <React.Fragment>
                 <Header home={true} />
-                <Pothole pothole={pothole} potholePictures={potholePictures}/>
+                <Pothole pothole={pothole} potholePictures={potholePictures} removePothole={this.removePothole}/>
                 </React.Fragment>
               )
             }} />

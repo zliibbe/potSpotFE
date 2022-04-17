@@ -5,8 +5,9 @@ const Pothole = (props) => {
   let potholeDisplay = "";
   let picturesDisplay = "";
   if (props.pothole && props.potholePictures) {
-    const { latitude, longitude, description, id, findPothole } = props.pothole;
+    const { latitude, longitude, description, id } = props.pothole;
     const pictures = props.potholePictures;
+    console.log("props: ", props)
     picturesDisplay = pictures.map((picture) => {
       return (
         <img
@@ -18,13 +19,14 @@ const Pothole = (props) => {
       );
     });
     potholeDisplay = (
-      <section className="pothole" onClick={() => findPothole(id)}>
+      <section className="pothole">
         <div className="location">
           <h3>Pothole {id}</h3>
           <p className="latitude">{latitude}</p>
           <p className="longitude">{longitude}</p>
         </div>
         <div className="description">{description}</div>
+        <button onClick={() => props.removePothole(id)}>X</button>
       </section>
     );
   }
