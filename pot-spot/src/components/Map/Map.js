@@ -8,7 +8,8 @@ class Map extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentPothole: null
+            currentPothole: null,
+            rightClick: null
         }
     }
 
@@ -16,17 +17,34 @@ class Map extends Component {
         this.setState({ currentPothole: pothole })
     }
     closeWindow = () => {
-        this.setState({ currentPothole: null })
+        this.setState({ currentPothole: null, rightClick: null })
     }
 
     displayLocation = (e) => {
-        var lat = e.latLng.lat();
-        var lng = e.latLng.lng();
-        alert("Lat =" + lat + "; Lng =" + lng)
+        let lat = e.latLng.lat();
+        let lng = e.latLng.lng();
+        // alert("Lat =" + lat + "; Lng =" + lng)
+        this.setState({
+            rightClick: < InfoWindow
+                onCloseClick={() => {
+                    this.closeWindow();
+                }}
+                position={{
+                    lat: e.latLng.lat(),
+                    lng: e.latLng.lng()
+                }}
+            >
+                <div className="info-box">
+                    <p>Lat = {lat}; Lng = {lng}</p>
+                </div>
+            </InfoWindow >
+        })
     }
+
     render() {
         let pictures;
         let picturesImgs;
+
         if (this.state.currentPothole) {
             pictures = this.props.pictures.filter(picture => picture.pothole_id === this.state.currentPothole.id)
             picturesImgs = pictures.map(picture => {
@@ -61,7 +79,7 @@ class Map extends Component {
                                         }}
                                     />)
                             })}
-
+                            {this.state.rightClick}
                             {this.state.currentPothole && (
                                 <InfoWindow
                                     onCloseClick={() => {
@@ -88,12 +106,12 @@ class Map extends Component {
 
                         </GoogleMap>
                     </LoadScript>
-</div>
-</div>
+                </div>
+            </div>
 
 
-                    )
+        )
     }
 }
 
-                    export default Map
+export default Map
