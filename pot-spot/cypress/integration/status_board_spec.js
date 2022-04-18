@@ -43,10 +43,11 @@ describe('Home page flow', () => {
     
       it('should display a pothole with details', () => {
         cy.get(".header-button").click().then(($pothole) => {
-            cy.get(".status-pothole")
-            .get('img')
-              .should('have.class', 'pothole-image')
-              .and('be.visible')
+          cy.url().should("eq", 'http://localhost:3000/statusboard')  
+          .get(".status-pothole")
+          .get('.pothole-image').first()
+          .should('have.class', 'pothole-image')
+          .and('be.visible')
         })
       })
 
