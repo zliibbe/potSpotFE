@@ -24,7 +24,7 @@ function StatusBoard(props) {
             {ph.status === 'done' ? ' Done' : ''}
           </p>
           <Link to={`/potholes/${ph.id}`}>
-          <button>Manage Pothole</button>
+          <button className="manage-pothole-button">Manage Pothole</button>
           </Link>
           {ph.status !== 'done' ? <StatusUpdater changeStatus={props.changeStatus} pothole={ph} /> : ''}
         </div>
