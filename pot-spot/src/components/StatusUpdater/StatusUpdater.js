@@ -3,7 +3,7 @@ import React from 'react'
 const StatusUpdater = (props) => {
 
     return (
-        <div>
+        <div className="change-status">
             <button className="change-status" onClick={() => props.changeStatus(props.pothole)}> Change Status </button>
         </div>
     )

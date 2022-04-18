@@ -48,6 +48,7 @@ describe('Home page flow', () => {
           .get('.pothole-image').first()
           .should('have.class', 'pothole-image')
           .and('be.visible')
+          .get()
         })
       })
 

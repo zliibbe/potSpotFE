@@ -17,7 +17,6 @@ hr {
 }
 
 .image-container {
-  overflow: hidden;
   margin: 0;
   display: contents
 }
@@ -25,15 +24,12 @@ hr {
 .pothole-image {
   width: 100%;
   max-height: 50%;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .status-box {
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: row; */
-  /* justify-content: space-evenly; */
-  /* border-radius: 10px; */
-  /* overflow: hidden; */
 }
 
 .status-pothole {
@@ -45,7 +41,6 @@ hr {
   box-shadow: 4px 4px 10px #808080;
   border-radius: 10px;
   margin: 1rem;
-  overflow: hidden;
 }
 
 .status-board-title {
