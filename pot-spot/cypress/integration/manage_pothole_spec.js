@@ -58,8 +58,15 @@ describe('Individual pothole page flow', () => {
       .contains('Decent size')
       .get('.pictures-section')
       .get('img')
-      .should('be.visible')      
     })
 
-    it('should be able to delete ')
+    it('should be able to delete pothole from individual pothole page', () => {
+      cy.visit('http://localhost:3000/statusboard')
+      .get('.manage-pothole-button').first().click()
+      .get('.delete-button').click()
+      .get('.message-container').contains('Your pothole at id: 1 has been deleted')
+      .click()
+      cy.get('.modal-button').click()
+      cy.contains('Submit New Pothole:')
+    })
  })
