@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 const Header = (props) => {
-  let button = props.home ? <Link to='/home'><button className='header-button'>Home</button></Link> : <Link to='/statusboard'><button className='header-button'>Status Board</button></Link>;
+  let button = props.home ? <NavLink to='/home'><button className='header-button'>Home</button></NavLink> : <NavLink to='/statusboard'><button className='header-button'>Status Board</button></NavLink>;
   return (
     <header>
       <div>

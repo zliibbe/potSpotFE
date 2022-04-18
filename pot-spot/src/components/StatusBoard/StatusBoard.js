@@ -15,8 +15,8 @@ function StatusBoard(props) {
           <div className='image-container'>
             <img className='pothole-image' src={image[0].url} alt="Pothole" />
           </div>
-          <h4>Pothole #{ph.id}</h4>
-          <p>{ph.description}</p>
+          <h4 className="pothole-name">Pothole #{ph.id}</h4>
+          <p className="pothole-description">{ph.description}</p>
           <p className={`${ph.status} status`}>
             Current Status:
             {ph.status === 'pending' ? ' Pending' : ''}
