@@ -8,14 +8,13 @@ class Form extends React.Component {
             latitude: '',
             longitude: '',
             description: '',
-            pictures: []
+            pictures: ''
         }
     }
     
     submitPothole = (event) => {
         event.preventDefault();
         const newPothole = {
-            id: Date.now(),
             latitude: this.state.latitude,
             longitude: this.state.longitude,
             description: this.state.description,
@@ -30,7 +29,7 @@ class Form extends React.Component {
             latitude: '',
             longitude: '',
             description: '',
-            pictures: []
+            pictures: ''
         })
     }
 
@@ -44,14 +43,15 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form className='pothole-form'>
+            <form className='pothole-form' onSubmit={event => this.submitPothole(event)}>
                 <p>Submit New Pothole:</p>
                 <input 
                     type="text"
                     name="latitude"
                     placeholder="Enter Latitude"
                     value={this.state.latitude}
-                    onChange={event => this.handleChange(event)}    
+                    onChange={event => this.handleChange(event)} 
+                    required   
                 />
 
                 <input 
@@ -59,7 +59,8 @@ class Form extends React.Component {
                     name="longitude"
                     placeholder="Enter Longitude"
                     value={this.state.longitude}
-                    onChange={event => this.handleChange(event)}    
+                    onChange={event => this.handleChange(event)} 
+                    required   
                 />
 
                 <input 
@@ -67,7 +68,8 @@ class Form extends React.Component {
                     name="description"
                     placeholder="Describe pothole"
                     value={this.state.description}
-                    onChange={event => this.handleChange(event)}    
+                    onChange={event => this.handleChange(event)}
+                    required
                 />
 
                 <input 
@@ -75,10 +77,11 @@ class Form extends React.Component {
                     name="pictures"
                     placeholder="Paste URL of pothole photo"
                     value={this.state.pictures}
-                    onChange={event => this.handleChange(event)}    
+                    onChange={event => this.handleChange(event)}
+                    required
                 />
 
-                <button onClick={event => this.submitPothole(event)}>Submit</button>
+                <input type='submit' value='submit'/>
             </form>
         )
     }

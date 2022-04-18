@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = (props) => {
-  let button = props.home ? <Link to='/home'><h3 className='header-button'>Home</h3></Link> : <Link to='/statusboard'><h3 className='header-button'>Status Board</h3></Link>;
+  let button = props.home ? <Link to='/home'><button className='header-button'>Home</button></Link> : <Link to='/statusboard'><button className='header-button'>Status Board</button></Link>;
   return (
     <header>
       <div>

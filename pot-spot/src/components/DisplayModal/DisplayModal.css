@@ -1,0 +1,30 @@
+.display-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 110%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,.5);
+}
+
+.message-container {
+    display:flex;
+    flex-direction: column;
+    width: 25%;
+    height: 25%;
+    z-index: 1;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.modal-button {
+    border-style: none;
+    background: none;
+    margin-left: 90%;
+}
+.message {
+    margin-top: 25%;
+}

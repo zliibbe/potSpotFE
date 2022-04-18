@@ -32,17 +32,29 @@ const fetchPictures = () => {
       body: JSON.stringify(newPothole)
     })
       .then(response => {
-        console.log(response)
-  
         if (!response.ok) {
           throw new Error("Please make sure that all fields are filled out")
-  
         } else {
-  
           return response.json()
         }
       })
-  
   }
 
-export { fetchPotholes, fetchPictures, postNewPothole }
+  const deletePothole = (id) => {
+    return fetch(`https://pot-spot.herokuapp.com/api/v1/potholes/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(response => {
+        console.log(response)
+  
+        if (!response.ok) {
+          throw new Error("Unable to delete pothole.")
+        } else {
+          return response.json()
+        }
+      })
+     
+  }
+
+export { fetchPotholes, fetchPictures, postNewPothole, deletePothole }

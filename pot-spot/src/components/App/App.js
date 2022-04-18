@@ -1,25 +1,25 @@
 import React from 'react';
 import './App.css';
-import PotholeDetail from '../PotholeDetail/PotholeDetail'
-import { fetchPotholes, fetchPictures, postNewPothole } from '../../apiCalls';
+import { fetchPotholes, fetchPictures, postNewPothole, deletePothole } from '../../apiCalls';
 import Map from '../Map/Map';
 import StatusBoard from '../StatusBoard/StatusBoard';
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Pothole from '../Pothole/Pothole'
 import Header from '../Header/Header';
 import Form from '../Form/Form';
-
+import DisplayModal from '../DisplayModal/DisplayModal';
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       potholes: [],
       currentPothole: '',
-      pictures: []
+      pictures: [],
+      message: ''
     }
   }
 
-  componentDidMount = () => {
+  loadPotholes = () => {
     fetchPotholes()
       .then(data => {
         data.forEach(pothole => {
@@ -37,17 +37,21 @@ class App extends React.Component {
           pictures: data
         })
       })
+  }
 
+  componentDidMount = () => {
+    this.loadPotholes()
   }
 
   addPothole = (newPothole) => {
     postNewPothole(newPothole)
-    this.setState({ potholes: [...this.state.potholes, newPothole] })
-    
+    .then(response => {
+      this.setState({message: response})
+    })
+    .then(() => this.loadPotholes())
   }
 
   findPothole = (id) => {
-
     const singlePothole = this.state.potholes.find(ph => ph.id === id)
     this.setState({ currentPothole: singlePothole })
   }
@@ -76,6 +80,21 @@ class App extends React.Component {
     return
   }
 
+  changeMessage = (message) => {
+    this.setState({message: message})
+  }
+
+  removePothole = (id) => {
+    deletePothole(id)
+    .then(response => {
+      console.log("response:",response)
+      this.setState({message: response})
+    })
+    .then(() => {
+      this.loadPotholes()
+    })
+  } 
+
 
   render() {
     return (
@@ -88,8 +107,9 @@ class App extends React.Component {
               return (
                 <React.Fragment>
                 <Header />
-                <Form addPothole={this.addPothole}/>
+                <Form addPothole={this.addPothole} />
                 <Map potholes={this.state.potholes} pictures={this.state.pictures} />
+                {this.state.message && <DisplayModal changeMessage={this.changeMessage} message={this.state.message} />}
                 </React.Fragment>
               )
             }} />
@@ -103,7 +123,7 @@ class App extends React.Component {
               return (
                 <React.Fragment>
                 <Header home={true} />
-                <Pothole pothole={pothole} potholePictures={potholePictures}/>
+                <Pothole pothole={pothole} potholePictures={potholePictures} removePothole={this.removePothole} />
                 </React.Fragment>
               )
             }} />
