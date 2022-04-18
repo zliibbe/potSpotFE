@@ -4,7 +4,7 @@ const StatusUpdater = (props) => {
 
     return (
         <div>
-            <button onClick={() => props.changeStatus(props.pothole)}> Change Status </button>
+            <button className="change-status" onClick={() => props.changeStatus(props.pothole)}> Change Status </button>
         </div>
     )
 }
