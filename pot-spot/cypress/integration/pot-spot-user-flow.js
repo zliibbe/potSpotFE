@@ -42,35 +42,18 @@ describe('User flows for Pot Spot App', () => {
             .get(".message").contains("Your pothole has been added.")
         })
     })
-
-    it('should have a status board of pothole details that can be accessed', () => {
-        cy.get(".header-button").click().then(($pothole) => {
-            cy.get(".status-pothole").first()
-            .contains("Pothole #6")
-            .contains("Current Status: Pending")
-            .get(".pothole-name").contains()
-        })
-    })
-
-    it('should have a status board that allows for the potholes\' status to be changed', () => {
-        cy.get(".header-button").click().then(($pothole) => {
-            cy.get(".status-pothole").first()
-            .contains("Current Status: Pending")
-            // .contains("")
-            // .get(".pothole-name").contains()
-        })
-    })
     
-    it('should have a status board of pothole details that can be accessed', () => {
+    it('should have a status board of pothole details that can be accessed with status that can be changed', () => {
         cy.get(".header-button").click().then(($pothole) => {
             cy.get(".status-pothole").first()
             .get(".change-status").click()
-            .get(".status-pothole").third()
+            .get(".inProgress")
             .contains("Current Status: Being worked on")
+            .get(".header-button").click()
+            cy.contains('Submit New Pothole:')
         })
     })
      
-    
     it('should have map that displays existing potholes', () => {
         // cy.get()
     })
