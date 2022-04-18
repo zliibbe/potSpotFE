@@ -33,10 +33,19 @@ describe('User flows for Pot Spot App', () => {
         expect(true).to.equal(true)
     })
 
-    it('should load a page with a form and GoogleMaps display', () => {
-        cy.get('.pothole-form'.contains('Submit New Pothole:'))
+    it('should have a form that you can submit new information for a pothole with', () => {
+        cy.get('.pothole-form').contains('Submit New Pothole:')
+        
+        cy.get('.pothole-form').then(($form) => {
+            cy.contains('Submit New Pothole:')
+            cy.get('input[name="latitude"]').type('39.74379494415912')
+            .get('input[name="longitude"]').type('-104.95005172109876')
+            .get('input[name="description"]').type('Not too bad of a pothole')
+            .get('input[name="pictures"]').type('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj44l3nUq20cbLxT_Y7h-eljdoLPwmNiLRjWlV8nU3Hwjjeiml2YH-44OG7NEpzyrb8Gw&usqp=CAU')
+            .get('input[value="submit"]').click()
+            .get(".message").contains("Your pothole has been added.")
+        })
     })
     
-    it('should have a form to submit a new pothole')
     
 })
