@@ -54,7 +54,7 @@ describe('Home page flow', () => {
     })
      
     it('should have map that displays existing potholes', () => {
-        // cy.get()
+        // testing of map beyond scope of current project
     })
     
 })

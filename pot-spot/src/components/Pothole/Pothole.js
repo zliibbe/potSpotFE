@@ -27,7 +27,7 @@ const Pothole = (props) => {
         </div>
         <div className="description">{description}</div>
         <Link to="/home">
-        <button onClick={() => props.removePothole(id)}>X</button>
+        <button className="delete-button" onClick={() => props.removePothole(id)}>X</button>
         </Link>
       </section>
     );
