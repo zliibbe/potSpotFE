@@ -11,3 +11,7 @@ input {
     text-align: center;
     text-overflow: ellipsis;
 }
+
+input[type='submit'] {
+    cursor: pointer;
+}
