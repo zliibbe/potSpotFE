@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { GoogleMap, Marker, InfoWindow, LoadScript } from "@react-google-maps/api";
-import apiKey from "../../apiKey";
 import { NavLink } from "react-router-dom"
 import './Map.css'
 
