@@ -15,6 +15,9 @@ If you would like to run the application locally you would need to:
 2. `cd` into the directory
 3. Run `npm i` to install all dependencies
 4. Run `npm start`, which will run the application on `localhost:3000`
+5. For the Google Map Api to work you will have to add your own api key: 
+    - First create a file called .env.local in the main directory
+    - Inside the .env.local decale variable named `REACT_APP_GOOGLE_KEY = "with your key here"`
 
 ## Goals
 - Develop an MVP coupled with the learning goals from the PotSpot API
