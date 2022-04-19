@@ -7,15 +7,20 @@
     border-radius: 10px;
     width: 30%;
     margin-bottom: 30px;
+    padding: 1rem;
 }
 
 .photo-preview {
     border-radius: 7px;
-    margin: 10px;
-    
+    margin: 10px; 
     max-height: 90%;
 }
 
+.delete-button {
+    background-color: red;
+    color: white;
+    font-weight:bold;
+}
 
 .pictures {
     max-width: 45%;
