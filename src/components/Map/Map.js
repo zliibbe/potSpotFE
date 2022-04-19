@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { GoogleMap, Marker, InfoWindow, LoadScript } from "@react-google-maps/api";
-import apiKey from "../../apiKey";
 import { NavLink } from "react-router-dom"
 import './Map.css'
 
@@ -57,7 +56,7 @@ class Map extends Component {
             <div className='form-map-container'>
                 <div className='pothole-form map-placeholder'>
                     <LoadScript
-                        googleMapsApiKey={apiKey}>
+                        googleMapsApiKey={REACT_APP_GOOGLE_KEY}>
                         <GoogleMap
                             zoom={12}
                             center={{ lat: 39.742043, lng: -104.991531 }}
