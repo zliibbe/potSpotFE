@@ -57,7 +57,7 @@ class Map extends Component {
             <div className='form-map-container'>
                 <div className='pothole-form map-placeholder'>
                     <LoadScript
-                        googleMapsApiKey={apiKey}>
+                        googleMapsApiKey={process.env.REACT_APP_GOOGLE_KEY}>
                         <GoogleMap
                             zoom={12}
                             center={{ lat: 39.742043, lng: -104.991531 }}
