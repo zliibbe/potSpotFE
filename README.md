@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# PotSpot
+The Pot Spot application is currently deployed [here](https://pot-spot-fe.herokuapp.com/home)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![adding-pothole](/src/assets/potspot-functionality.gif)
 
-## Available Scripts
+Welcome to the Front End of the PotSpot application, in which you can track, update, and add/remove potspots in your local municipality.
+To see the API ends of this project go [here](https://github.com/Romeslayer/potSpotBE)
 
-In the project directory, you can run:
+## Setup
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+If you would like to run the application locally you would need to:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Clone down the Repo
+2. `cd` into the directory
+3. Run `npm i` to install all dependencies
+4. Run `npm start`, which will run the application on `localhost:3000`
 
-### `npm test`
+## Goals
+- Develop an MVP coupled with the learning goals from the PotSpot API
+- Create a multi-page application implementing React Router that can be accessed by a single user
+- Implement the ability to view and manipulate pothole data, including updating the status of a pothole (pending, in-progress, and done), as well as the ability to add and/or remove a pothole
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![status-board-deleting-pothole](src/assets/status-board-delete-ph.gif)
 
-### `npm run build`
+## Potential Extentions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Update status of each pothole in the database
+- Upload image/picture files as opposed to just using image URLs
+- Right-click on the map to add a pothole (while keeping the form functionality)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authors
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- DéNaje Ferguson - [GitHub](https://github.com/Romeslayer)
+- Jake Dunafon - [GitHub](https://github.com/J-Dunny)
+- Ron L Head - [GitHub](https://github.com/RonLHead)
+- Zach Liibbe - [GitHub](https://github.com/zliibbe)
