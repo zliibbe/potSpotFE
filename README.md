@@ -4,7 +4,7 @@ The Pot Spot application is currently deployed [here](https://pot-spot-fe.heroku
 ![adding-pothole](/src/assets/potspot-functionality.gif)
 
 Welcome to the Front End of the PotSpot application, in which you can track, update, and add/remove potspots in your local municipality.
-To see the API ends of this project go [here](https://github.com/Romeslayer/potSpotBE)
+To see the API ends of this project go [here](https://github.com/zliibbe/potSpotBE)
 
 ## Setup
 
